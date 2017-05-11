@@ -20,14 +20,17 @@
         - If your object doesn't have values you need yet, you can add those properties in the model.
     -->
     <script id="article-template" type="text/x-handlebars-template">
-      <h1>{{title}}</h1>
-      <p>{{category}}</p>
-      <p>{{author}}</p>
-      <a id="authorUrl">{{authorUrl}}</a>
-      <p>{{publishedOn}}<p>
-      {{{body}}}
+      <article data-author="{{author}}" data-category="{{category}}">
 
-    </script>
+        <h1>{{title}}</h1>
+        <div class="byline">By <address>
+          <a href="{{{authorUrl}}}">{{author}}</a></address>Published <time>{{publishedOn}}</time></div>
+          <section class="article-body">
+            {{{body}}}
+            <a href="#" class="read-on">Read On</a>
+          </section>
+        </article>
+      </script>
   </head>
   <body>
     <header class="site-header clearfix">
@@ -83,7 +86,6 @@
     <footer>
       &copy; 2017 Code Fellows | Static Blog | Happy Ipsum!
     </footer>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <!-- TODO: Include Handlebars.JS from a CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
